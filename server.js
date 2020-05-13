@@ -17,7 +17,7 @@ const routes = require('./routes');
 const app = express();
 const log = console.log;
 const PORT = process.env.PORT || 8080; 
-const SOCKET_PORT =  8081; // Step 1
+const SOCKET_PORT =  process.env.PORT || 8081; // Step 1
 
 
 // Step 2

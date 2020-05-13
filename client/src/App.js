@@ -32,12 +32,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+      <Form addUser={this.addUser}/>
+      < DisplayUsers users={this.state.users} />
         <Home/>
       </div>
     );
   }
 }
-/*<Form addUser={this.addUser}/>
-        < DisplayUsers users={this.state.users} />*/
+
 export default App;
