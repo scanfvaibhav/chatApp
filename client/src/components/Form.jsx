@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import axios from 'axios';
 
+
 class Form extends Component {
   state = {
     name: '',
-    position: '',
-    company: ''
+    email: '',
   };
 
   handleChange = e => {
@@ -17,22 +17,20 @@ class Form extends Component {
 
   submit = e => {
     e.preventDefault();
-    const { name, position, company } = this.state;
+    const { name, email } = this.state;
     axios({
       url: '/add',
       method: 'POST',
       data: {
         name,
-        position,
-        company
+        email
       }
     })
       .then((response) => {
         this.props.addUser(response.data);
         this.setState({
           name: '',
-          company: '',
-          position: ''
+          email: ''
         });
       })
       .catch(() => alert('Failed uploading data'))
@@ -50,23 +48,15 @@ class Form extends Component {
         />
 
         <TextField
-          name="company"
-          value={this.state.company}
+          name="email"
+          value={this.state.email}
           id="standard-dense"
           onChange={this.handleChange}
-          label="Company"
-        />
-
-        <TextField
-          name="position"
-          value={this.state.position}
-          id="standard-dense"
-          onChange={this.handleChange}
-          label="Position"
+          label="Email"
         />
 
         <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
-
+        
       </form>
     );
   }

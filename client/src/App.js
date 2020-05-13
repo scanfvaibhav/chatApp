@@ -3,6 +3,7 @@ import Form from './components/Form';
 import DisplayUsers from './components/DisplayUsers';
 import axios from 'axios';
 import './App.css';
+import Home from './components/Home';
 class App extends Component {
   state = {
     users: []
@@ -22,21 +23,21 @@ class App extends Component {
   };
 
 
-  addUser = ({ name, position, company }) => {
+  addUser = ({ name, email }) => {
     this.setState({
-      users: [...this.state.users, { name, position, company }]
+      users: [...this.state.users, { name, email }]
     });
   };
 
   render() {
     return (
       <div className="App">
-        <Form addUser={this.addUser}/>
-        < DisplayUsers users={this.state.users} />
-
+        
+        <Home/>
       </div>
     );
   }
 }
-
+/*<Form addUser={this.addUser}/>
+        < DisplayUsers users={this.state.users} />*/
 export default App;
