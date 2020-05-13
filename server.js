@@ -63,7 +63,9 @@ io.on('connection', function(socket){
     });
    
   });
- 
+  io.listen(SOCKET_PORT, () => {
+    log(`Socket Server is starting at PORT: ${SOCKET_PORT}`);
+});
 app.listen(PORT, () => {
     log(`Server is starting at PORT: ${PORT}`);
 });
